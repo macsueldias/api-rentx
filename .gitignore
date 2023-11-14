@@ -1,6 +1,7 @@
-/node_modules
-
-/tmp
-
-# local env files
-.env*.local
+node_modules
+tmp/*
+.env
+.vscode
+!tmp/.gitkeep
+dist/
+ormconfig.json
