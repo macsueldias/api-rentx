@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Nodejs
       - uses: actions/setup-node@v2
+      
+      - name: Setup Nodejs
         with:
           node-version: 14.x
 
@@ -30,4 +31,4 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           source: "., !node_modules"
-          target: "teste"
+          target: "test"
