@@ -23,7 +23,7 @@ jobs:
         run: yarn build
 
 
-      - uses: appleboy/scp-action@main
+      - uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSh_USER }}
