@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v2
+
+      - name: Setup Nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+
+      - uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSh_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_Key }}
+          source: "., !node_modules"
+          target: "teste"
