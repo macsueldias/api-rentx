@@ -6,6 +6,7 @@ import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
 import "@shared/container";
+import rateLimiter from "./middlewares/rateLimiter";
 import { AppError } from "@shared/errors/AppError";
 import createConnection from "@shared/infra/typeorm";
 
@@ -15,6 +16,8 @@ import upload from "@config/upload";
 
 createConnection();
 const app = express();
+
+app.use(rateLimiter);
 
 app.use(express.json());
 

@@ -6,24 +6,32 @@ services:
         container_name: database_ignite
         restart: always
         ports:
-            - 32258:5432
+            # - 32258:5432
+            - 5432:5432
         environment:
             - POSTGRES_USER=docker
-            - POSTGRES_PASSWORD=f34fa5ab9805c87d7a19050d14486e82
+            # - POSTGRES_PASSWORD=f34fa5ab9805c87d7a19050d14486e82
+            - POSTGRES_PASSWORD=ignite
             - POSTGRES_DB=rentx
         volumes:
             - pgdata:/data/POSTGRES_DB
-    app:
-        build: .
-        container_name: rentx
+
+    redis:
+        image: redis:alpine
         ports:
-            - 3333:3333
-        volumes:
-            - .:/usr/app
-        links:
-            - database_ignite
-        depends_on:
-            - database_ignite
+            - 6379:6379
+
+    # app:
+    #     build: .
+    #     container_name: rentx
+    #     ports:
+    #         - 3333:3333
+    #     volumes:
+    #         - .:/usr/app
+    #     links:
+    #         - database_ignite
+    #     depends_on:
+    #         - database_ignite
 volumes:
     pgdata:
         driver: local

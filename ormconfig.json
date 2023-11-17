@@ -3,11 +3,11 @@
     "port": 32258,
     "host": "localhost",
     "username": "docker",
-    "password": "f34fa5ab9805c87d7a19050d14486e82",
+    "password": "ignite",
     "database": "rentx",
-    "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
-    "entities": ["./dist/modules/**/entities/*.js"],
+    "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+    "entities": ["./src/modules/**/entities/*.ts"],
     "cli": {
-        "migrationsDir": "./dist/shared/infra/typeorm/migrations"
+        "migrationsDir": "./src/shared/infra/typeorm/migrations"
     }
 }
