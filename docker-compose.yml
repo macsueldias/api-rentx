@@ -10,7 +10,7 @@ services:
             - 5432:5432
         environment:
             - POSTGRES_USER=docker
-            # - POSTGRES_PASSWORD=f34fa5ab9805c87d7a19050d14486e82
+            # - POSTGRES_PASSWORD=
             - POSTGRES_PASSWORD=ignite
             - POSTGRES_DB=rentx
         volumes:
