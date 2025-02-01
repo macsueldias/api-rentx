@@ -6,7 +6,6 @@ services:
         container_name: database_ignite
         restart: always
         ports:
-            # - 32258:5432
             - 5432:5432
         environment:
             - POSTGRES_USER=docker
